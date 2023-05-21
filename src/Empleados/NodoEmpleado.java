@@ -9,17 +9,16 @@ package Empleados;
  * @author ADRIAN CASTILLO
  */
 public class NodoEmpleado {
-    String nombre, apellido;
+    String nombre;
     double salario;
-    int edad, id;
+    int id;
     NodoEmpleado hijoIzquierdo;
     NodoEmpleado hijoDerecho;
   
-    public NodoEmpleado(String nombre, String apellido, double salario, int edad, int id) {
+    public NodoEmpleado(String nombre,  double salario,  int id) {
     this.nombre = nombre;
     this.salario = salario;
-    this.apellido=apellido;
-    this.edad=edad;
+    
     this.id=id;
     this.hijoIzquierdo = null;
     this.hijoDerecho = null;

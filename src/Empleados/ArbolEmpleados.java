@@ -17,8 +17,8 @@ public class ArbolEmpleados {
     }
     
     // Método que agrega un nuevo empleado al árbol
-    public void agregarEmpleado(String nombre, String apellido, double salario, int edad, int id){
-        NodoEmpleado nuevoEmpleado = new NodoEmpleado(nombre, apellido,salario,edad,id);
+    public void agregarEmpleado(String nombre,  double salario,  int id){
+        NodoEmpleado nuevoEmpleado = new NodoEmpleado(nombre,salario,id);
         if (raiz == null) {
             // Si el árbol está vacío, el nuevo empleado se convierte en la raíz
             raiz = nuevoEmpleado;
@@ -52,10 +52,10 @@ public class ArbolEmpleados {
     }
     
     // Busca un empleado en el árbol por su nombre
-    public void buscarEmpleado(String nombre) {
+    public void buscarEmpleado(int id) {
         NodoEmpleado actual = raiz;
-        while (actual != null && !actual.nombre.equals(nombre)) {
-            if (nombre.compareTo(actual.nombre) < 0) {
+        while (actual != null && actual.id != id) {
+            if (id < actual.id) {
                 actual = actual.hijoIzquierdo;
             } else {
                 actual = actual.hijoDerecho;
@@ -63,10 +63,10 @@ public class ArbolEmpleados {
         }
         if (actual == null) {
             // Si no se encuentra el empleado, se muestra un mensaje de error
-            System.out.println("No se encontró el empleado " + nombre + " en la base de datos.");
+            System.out.println("No se encontró el empleado con ID: " + id + " en la base de datos.");
         } else {
-            // Si se encuentra el empleado, se muestra su salario
-            System.out.println("El salario de " + nombre + " es " + actual.salario);
+            // Si se encuentra el empleado, se muestra su nombre y salario
+            System.out.println("El empleado con ID: " + id + " es " + actual.nombre + " y su salario es " + actual.salario);
         }
     }
 
@@ -80,10 +80,7 @@ public class ArbolEmpleados {
     private void inorden(NodoEmpleado nodo) {
         if (nodo != null) {
             inorden(nodo.hijoIzquierdo);
-            
-            System.out.println("Id  Nombre  Apellido  Salario  Edad  ");
-            System.out.println(nodo.id+" "+nodo.nombre +" "+nodo.apellido+" "+nodo.salario+" "+nodo.edad);
-            System.out.println(nodo.nombre + " - Salario: " + nodo.salario);
+            System.out.println(nodo.id+" "+nodo.nombre +" "+nodo.salario+" ");
             inorden(nodo.hijoDerecho);
         }
     }

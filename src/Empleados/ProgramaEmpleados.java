@@ -32,8 +32,7 @@ public class ProgramaEmpleados {
             System.out.println("---------Agregar empleado--------------");
             System.out.print("Nombre: ");
             String nombre = sc.nextLine();
-            System.out.print("apellido: ");
-            String apellido = sc.nextLine();
+            
             System.out.print("Salario: ");
             double salario = sc.nextDouble();
             System.out.print("edad: ");
@@ -41,14 +40,14 @@ public class ProgramaEmpleados {
             System.out.print("id: ");
             int id = sc.nextInt();
             
-            arbolEmpleados.agregarEmpleado(nombre, apellido, salario, edad, id);
+            arbolEmpleados.agregarEmpleado(nombre, salario, id);
             break;
           case 2:
 
             System.out.println("----------Buscar empleado----------");
             System.out.print("Nombre: ");
-            nombre = sc.nextLine();
-            arbolEmpleados.buscarEmpleado(nombre);
+            id = sc.nextInt();
+            arbolEmpleados.buscarEmpleado(id);
             System.out.println("---------------------------------");
             break;
           case 3:
