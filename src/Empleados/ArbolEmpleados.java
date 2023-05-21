@@ -29,7 +29,7 @@ public class ArbolEmpleados {
             while (true) {
                 //la variable actual se utilizara como auxiliar
                 padre = actual;
-                if (salario<actual.salario) {
+                if (id< actual.id) {
                     actual = actual.hijoIzquierdo;//reasignar el nodo actual a Hijo izquierdo
                     if (actual == null) { //comprobar si el hijo esta vacio
                         // Si se llega al final de la rama izquierda, el nuevo empleado se agrega como hijo izquierdo del padre
@@ -73,7 +73,61 @@ public class ArbolEmpleados {
             System.out.println("El empleado con ID: " + id + " es " + actual.nombre + " y su salario es " + actual.salario);
         }
     }
+    // Elimina un empleado del árbol por su ID
+    public void eliminarEmpleado(int id) {
+        raiz = eliminarEmpleadoRecursivo(raiz, id);
+        System.out.println("El empleado con ID " + id + " ha sido eliminado.");
+    }
+    // Método auxiliar para eliminar un empleado recursivamente
+    private NodoEmpleado eliminarEmpleadoRecursivo(NodoEmpleado nodo, int id) {
+        if (nodo == null) {
+            // Si el nodo es nulo, no se encontró el empleado en el árbol
+            System.out.println("No se encontró el empleado con ID: " + id + " en la base de datos.");
+            return null;
+        }
 
+        if (id < nodo.id) {
+            // El ID buscado es menor, se busca en el subárbol izquierdo
+            nodo.hijoIzquierdo = eliminarEmpleadoRecursivo(nodo.hijoIzquierdo, id);
+        } else if (id > nodo.id) {
+            // El ID buscado es mayor, se busca en el subárbol derecho
+            nodo.hijoDerecho = eliminarEmpleadoRecursivo(nodo.hijoDerecho, id);
+        } else {
+            // Se encontró el empleado con el ID buscado
+            if (nodo.hijoIzquierdo == null && nodo.hijoDerecho == null) {
+                // Caso 1: El nodo a eliminar es una hoja (no tiene hijos)
+                return null;
+            } else if (nodo.hijoIzquierdo == null) {
+                // Caso 2: El nodo a eliminar solo tiene hijo derecho
+                return nodo.hijoDerecho;
+            } else if (nodo.hijoDerecho == null) {
+                // Caso 3: El nodo a eliminar solo tiene hijo izquierdo
+                return nodo.hijoIzquierdo;
+            } else {
+                // Caso 4: El nodo a eliminar tiene ambos hijos
+                // Se busca el sucesor inorden (el menor valor en el subárbol derecho)
+                NodoEmpleado sucesor = obtenerSucesorInorden(nodo.hijoDerecho);
+                // Se reemplaza el valor del nodo a eliminar con el del sucesor
+                nodo.id = sucesor.id;
+                nodo.nombre = sucesor.nombre;
+                nodo.salario = sucesor.salario;
+                // Se elimina el sucesor inorden del subárbol derecho
+                nodo.hijoDerecho = eliminarEmpleadoRecursivo(nodo.hijoDerecho, sucesor.id);
+            }
+        }
+
+        return nodo;
+    }
+    // Método auxiliar para obtener el sucesor inorden de un nodo
+    private NodoEmpleado obtenerSucesorInorden(NodoEmpleado nodo) {
+        NodoEmpleado actual = nodo;
+        while (actual.hijoIzquierdo != null) {
+            actual = actual.hijoIzquierdo;
+        }
+        return actual;
+    }
+    
+    
     // Muestra los empleados en el árbol en orden ascendente por nombre
     public void consultarEmpleados() {
         System.out.println("Empleados en la base de datos:");

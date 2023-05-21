@@ -22,7 +22,8 @@ public class ProgramaEmpleados {
             System.out.println("1. Agregar empleado");
             System.out.println("2. Buscar empleado");
             System.out.println("3. Consultar todos los empleados");
-            System.out.println("4. Salir");
+            System.out.println("4. Eliminar empleado");
+            System.out.println("5. Salir");
             System.out.print("Digite la opcion que desea realizar: ");
             int opcion = sc.nextInt();
             sc.nextLine(); // consumir el salto de línea
@@ -56,9 +57,16 @@ public class ProgramaEmpleados {
             System.out.println("---------------------------------");
             break;
           case 4:
-            System.out.println("\n---------------------------");
-            continuar = false;
+            System.out.println("\n-----------Eliminar Empleado----------------");
+            System.out.print("Id: ");
+            id = sc.nextInt();
+            arbolEmpleados.eliminarEmpleado(id);
             break;
+          case 5:
+            System.out.println("Gracias por utilizar el programa");
+            System.out.println("Hasta pronto");
+            continuar = false;
+              break;
           default:
             System.out.println("\n---------------------------");
             System.out.println("\nOpción inválida");
