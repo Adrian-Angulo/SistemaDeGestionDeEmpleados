@@ -35,8 +35,7 @@ public class ProgramaEmpleados {
             
             System.out.print("Salario: ");
             double salario = sc.nextDouble();
-            System.out.print("edad: ");
-            int edad = sc.nextInt();
+            
             System.out.print("id: ");
             int id = sc.nextInt();
             
@@ -45,7 +44,7 @@ public class ProgramaEmpleados {
           case 2:
 
             System.out.println("----------Buscar empleado----------");
-            System.out.print("Nombre: ");
+            System.out.print("Id: ");
             id = sc.nextInt();
             arbolEmpleados.buscarEmpleado(id);
             System.out.println("---------------------------------");

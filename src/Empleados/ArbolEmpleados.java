@@ -38,7 +38,7 @@ public class ArbolEmpleados {
                     }
                     
                     //en caso que no este vacio se repite el procedimiento
-                } else {
+                } else if (id > actual.id) {
                     actual = actual.hijoDerecho; //reasignar actual como hijo derecho
                     if (actual == null) { // si esta basio
                         // Si se llega al final de la rama derecha, el nuevo empleado se agrega como hijo derecho del padre
@@ -46,7 +46,11 @@ public class ArbolEmpleados {
                         return;
                     }
                     
-                }
+                } else {
+                // Si se encuentra un empleado con el mismo ID, muestra un mensaje de error
+                System.out.println("Ya existe un empleado con el ID: " + id);
+                return;
+            }
             }
         }        
     }
