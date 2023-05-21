@@ -16,7 +16,7 @@ public class ProgramaEmpleados {
     ArbolEmpleados arbolEmpleados = new ArbolEmpleados();
     Scanner sc = new Scanner(System.in);
     boolean continuar = true;
-    while (continuar) {
+    while (continuar==true) {
         try {
             System.out.println("\n¿Qué acción desea realizar?");
             System.out.println("1. Agregar empleado");
@@ -65,7 +65,7 @@ public class ProgramaEmpleados {
           case 5:
             System.out.println("Gracias por utilizar el programa");
             continuar = false;
-              break;
+            break;
           default:
             System.out.println("\n---------------------------");
             System.out.println("\nOpción inválida");
