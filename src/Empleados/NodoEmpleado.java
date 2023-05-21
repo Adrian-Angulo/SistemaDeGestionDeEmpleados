@@ -9,12 +9,13 @@ package Empleados;
  * @author ADRIAN CASTILLO
  */
 public class NodoEmpleado {
-    String nombre;
-    double salario;
-    int id;
-    NodoEmpleado hijoIzquierdo;
-    NodoEmpleado hijoDerecho;
+    String nombre;              // Nombre del empleado
+    double salario;             // Salario del empleado
+    int id;                     // Identificación del empleado
+    NodoEmpleado hijoIzquierdo; // Referencia al hijo izquierdo del nodo
+    NodoEmpleado hijoDerecho;   // Referencia al hijo derecho del nodo
   
+    // Constructor de la clase NodoEmpleado
     public NodoEmpleado(String nombre,  double salario,  int id) {
     this.nombre = nombre;
     this.salario = salario;

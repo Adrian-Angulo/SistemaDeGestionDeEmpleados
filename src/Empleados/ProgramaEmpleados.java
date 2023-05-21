@@ -31,13 +31,13 @@ public class ProgramaEmpleados {
           case 1:
                   
             System.out.println("---------Agregar empleado--------------");
-            System.out.print("Nombre: ");
+            System.out.print("NOMBRE: ");
             String nombre = sc.nextLine();
             
-            System.out.print("Salario: ");
+            System.out.print("SALARIO: ");
             double salario = sc.nextDouble();
             
-            System.out.print("id: ");
+            System.out.print("ID: ");
             int id = sc.nextInt();
             
             arbolEmpleados.agregarEmpleado(nombre, salario, id);
@@ -45,7 +45,7 @@ public class ProgramaEmpleados {
           case 2:
 
             System.out.println("----------Buscar empleado----------");
-            System.out.print("Id: ");
+            System.out.print("ID: ");
             id = sc.nextInt();
             arbolEmpleados.buscarEmpleado(id);
             System.out.println("---------------------------------");
@@ -54,17 +54,16 @@ public class ProgramaEmpleados {
 
             System.out.println("--------Consultar todos los empleados---------");
             arbolEmpleados.consultarEmpleados();
-            System.out.println("---------------------------------");
+            
             break;
           case 4:
             System.out.println("\n-----------Eliminar Empleado----------------");
-            System.out.print("Id: ");
+            System.out.print("ID: ");
             id = sc.nextInt();
             arbolEmpleados.eliminarEmpleado(id);
             break;
           case 5:
             System.out.println("Gracias por utilizar el programa");
-            System.out.println("Hasta pronto");
             continuar = false;
               break;
           default:

@@ -128,17 +128,21 @@ public class ArbolEmpleados {
     }
     
     
-    // Muestra los empleados en el árbol en orden ascendente por nombre
+    // Muestra los empleados en el árbol en orden ascendente por ID
     public void consultarEmpleados() {
         System.out.println("Empleados en la base de datos:");
+        System.out.println("----------------------------------------");
+        System.out.printf("%-5s %-20s %-10s\n", "ID", "Nombre", "Salario");
+        System.out.println("----------------------------------------");
         inorden(raiz);
+        System.out.println("----------------------------------------");
     }
     
-    // Recorre el árbol en inorden (izquierda - raíz - derecha)
+    // Recorre el árbol en inorden por ID (izquierda - raíz - derecha)
     private void inorden(NodoEmpleado nodo) {
         if (nodo != null) {
             inorden(nodo.hijoIzquierdo);
-            System.out.println(nodo.id+" "+nodo.nombre +" "+nodo.salario+" ");
+            System.out.printf("%-5d %-20s %-10.2f\n", nodo.id, nodo.nombre, nodo.salario);
             inorden(nodo.hijoDerecho);
         }
     }
