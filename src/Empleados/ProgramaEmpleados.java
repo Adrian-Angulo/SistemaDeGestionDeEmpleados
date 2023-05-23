@@ -70,12 +70,11 @@ public class ProgramaEmpleados {
             System.out.println("\n---------------------------");
             System.out.println("\nOpción inválida");
         }
-            
         } catch (Exception e) {
             System.out.println("Error, solo datos numericos");
             
         }
-        
+          
     }
     System.out.println("\n¡Hasta pronto!");
   }

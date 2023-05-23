@@ -22,6 +22,7 @@ public class ArbolEmpleados {
         if (raiz == null) {
             // Si el árbol está vacío, el nuevo empleado se convierte en la raíz
             raiz = nuevoEmpleado;
+            System.out.println("Registro exitoso");
         } else {
             // Si el árbol no está vacío, se busca la posición adecuada para el nuevo empleado
             NodoEmpleado actual = raiz;
@@ -34,6 +35,7 @@ public class ArbolEmpleados {
                     if (actual == null) { //comprobar si el hijo esta vacio
                         // Si se llega al final de la rama izquierda, el nuevo empleado se agrega como hijo izquierdo del padre
                         padre.hijoIzquierdo = nuevoEmpleado; //se agrega el hijo al padre
+                        System.out.println("Registro exitoso");
                         return;
                     }
                     
@@ -42,7 +44,8 @@ public class ArbolEmpleados {
                     actual = actual.hijoDerecho; //reasignar actual como hijo derecho
                     if (actual == null) { // si esta basio
                         // Si se llega al final de la rama derecha, el nuevo empleado se agrega como hijo derecho del padre
-                        padre.hijoDerecho = nuevoEmpleado; 
+                        padre.hijoDerecho = nuevoEmpleado;
+                        System.out.println("Registro exitoso");
                         return;
                     }
                     
@@ -76,6 +79,9 @@ public class ArbolEmpleados {
     // Elimina un empleado del árbol por su ID
     public void eliminarEmpleado(int id) {
         raiz = eliminarEmpleadoRecursivo(raiz, id);
+        if(raiz==null){
+            
+        }
         System.out.println("El empleado con ID " + id + " ha sido eliminado.");
     }
     // Método auxiliar para eliminar un empleado recursivamente
