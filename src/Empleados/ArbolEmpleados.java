@@ -22,7 +22,7 @@ public class ArbolEmpleados {
         if (raiz == null) {
             // Si el árbol está vacío, el nuevo empleado se convierte en la raíz
             raiz = nuevoEmpleado;
-            System.out.println("Registro exitoso");
+            System.out.println("Registro exitoso!");
         } else {
             // Si el árbol no está vacío, se busca la posición adecuada para el nuevo empleado
             NodoEmpleado actual = raiz;
@@ -35,7 +35,7 @@ public class ArbolEmpleados {
                     if (actual == null) { //comprobar si el hijo esta vacio
                         // Si se llega al final de la rama izquierda, el nuevo empleado se agrega como hijo izquierdo del padre
                         padre.hijoIzquierdo = nuevoEmpleado; //se agrega el hijo al padre
-                        System.out.println("Registro exitoso");
+                        System.out.println("Registro exitoso!");
                         return;
                     }
                     
@@ -45,7 +45,7 @@ public class ArbolEmpleados {
                     if (actual == null) { // si esta basio
                         // Si se llega al final de la rama derecha, el nuevo empleado se agrega como hijo derecho del padre
                         padre.hijoDerecho = nuevoEmpleado;
-                        System.out.println("Registro exitoso");
+                        System.out.println("Registro exitoso!");
                         return;
                     }
                     
@@ -73,7 +73,7 @@ public class ArbolEmpleados {
             System.out.println("No se encontró el empleado con ID: " + id + " en la base de datos.");
         } else {
             // Si se encuentra el empleado, se muestra su nombre y salario
-            System.out.println("El empleado con ID: " + id + " es " + actual.nombre + " y su salario es " + actual.salario);
+            System.out.println("El empleado con ID: " + id + " es " + actual.nombre + " y su salario es de " + actual.salario+ " dolares");
         }
     }
     // Elimina un empleado del árbol por su ID
